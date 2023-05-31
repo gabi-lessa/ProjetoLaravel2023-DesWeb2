@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <script src="{{asset('js/pedidoUsuario.js')}}"></script>
+        <script src="{{ asset('js/pedidoUsuario.js') }}"></script>
         {{-- Parte Superior --}}
         <div>
             <h1 class="text-center mb-4">
