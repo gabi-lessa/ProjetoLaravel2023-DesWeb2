@@ -21,6 +21,70 @@
 //     });
 // });
 
+$(document).ready( function() {
+   // Pelo jQuery HIDE/SHOW
+$("#id-button-busca").click( function() {
+    // alert('Botão pressionado');
+    const selectFiltroTipo = $("#id-select-filtro-tipo");
+    if (selectFiltroTipo.is(":hidden")) {
+        selectFiltroTipo.show(400);
+    } else {
+        selectFiltroTipo.hide(400);
+    }
+});
+
+// Pelo jQuery fadeIn/fadeOut
+$("#id-button-busca").click( function() {
+    // alert('Botão pressionado');
+    const selectFiltroTipo = $("#id-select-filtro-tipo");
+    if (selectFiltroTipo.is(":hidden")) {
+        selectFiltroTipo.fadeIn(600);
+    } else {
+        selectFiltroTipo.fadeOut(600);
+    }
+});
+
+// Pelo jQuery slideUp/slideDown
+$("#id-button-busca").click( function() {
+    // alert('Botão pressionado');
+    const selectFiltroTipo = $("#id-select-filtro-tipo");
+    if (selectFiltroTipo.is(":hidden")) {
+        selectFiltroTipo.slideUp(600);
+    } else {
+        selectFiltroTipo.slideDown(600);
+    }
+});
+
+// Animação customizada
+// Declaro uma variável em escopo mais alto
+let isAnimating = false;
+//Pelo jQuery slideUp/slideDown
+$("#id-button-busca").click( function(){
+    //Busco o objeto para realizar a animação
+    const selectFiltroTipo = $("#id-select-filtro-tipo");
+    // Tem alguma animação acontecendo?
+    if (!isAnimating) {
+        isAnimating = true;
+        if ( selectFiltroTipo.is(":hidden")) {
+            selectFiltroTipo.css("display", "inline-block");
+            selectFiltroTipo.animate({width: "+-250px"}, 1000).promise().done(function (){
+                isAnimating = false;
+            });
+        } else {
+            selectFiltroTipo.animate({width: "+-250px"}, 1000).promise().done(function (){
+            selectFiltroTipo.css("display", "none");
+                isAnimating = false;
+            });
+        }
+    }
+});
+
+
+const selectFiltroTipo = $("#id-select-filtro-tipo");
+selectFiltroTipo.on('change', function() {
+    updateProdutos();
+});
+
 function updateProdutos(){
     // Pego o valor da propriedade VALUE do elemento selecionado
     // e coloco na variável tipoProdutoID
@@ -46,4 +110,5 @@ function updateProdutos(){
             console.log(error);
         }
     });
-}
+} 
+});
