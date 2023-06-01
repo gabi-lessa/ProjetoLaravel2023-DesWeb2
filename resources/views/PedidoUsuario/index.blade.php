@@ -21,8 +21,7 @@
                 </div>
                 <div class="col-md-6">
                     <select class="form-select" name="" id="id-select-filtro-tipo">
-                        <option selected>Filtro de tipo de produto</option>
-                        <option value="0">Tudo</option>
+                        <option value="0" selected>Tudo</option>
                         <option value="1">Pizza</option>
                         <option value="2">Suco</option>
                         <option value="3">Cerveja</option>
