@@ -16,7 +16,7 @@
 
                         <a class="btn btn-outline-primary" href="{{ route('endereco.index') }}">Gerenciar Enderecos <i
                                 class="fa-solid fa-location-dot"></i></a>
-                        <a class="btn btn-outline-primary" href="#">Gerenciar Pedidos <i
+                        <a class="btn btn-outline-primary" href="{{ route('pedidousuario.index') }}">Gerenciar Pedidos <i
                                 class="fa-solid fa-clipboard-list"></i></a>
                         <a class="btn btn-outline-primary" href="{{ route('userinfo.index') }}">Gerenciar Informações
                             Adicionais <i class="fa-regular fa-address-card"></i></a>

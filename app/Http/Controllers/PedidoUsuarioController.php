@@ -19,7 +19,7 @@ class PedidoUsuarioController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Show the application dashboard.
      *
@@ -36,13 +36,14 @@ class PedidoUsuarioController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function getProdutos($id){
+    public function getProdutos($id)
+    {
         // Se o ID informado for igual a 0, significa que quer todos os produtos
         if ($id == 0) {
-            $produtos = DB::select("SELECT * FROM Produtos");
-        // Se não, significa que quer um produto de um tipo específico
+            $produtos = DB::select("SELECT Produtos.*, Tipo_Produtos.descricao FROM Produtos JOIN Tipo_Produtos ON Produtos.Tipo_Produtos_id = Tipo_Produtos.id");
+            // Se não, significa que quer um produto de um tipo específico
         } else {
-            $produtos = DB::select("SELECT * FROM Produtos WHERE Produtos.Tipo_Produtos_id = ?", [$id]);
+            $produtos = DB::select("SELECT Produtos.*, Tipo_Produtos.descricao FROM Produtos JOIN Tipo_Produtos ON Produtos.Tipo_Produtos_id = Tipo_Produtos.id WHERE Produtos.Tipo_Produtos_id = ?", [$id]);
         }
         // Construção da resposta (criação do array $response)
         $response["message"] = "Consulta realizada com sucesso";
